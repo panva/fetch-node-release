@@ -1,6 +1,6 @@
 {
   "name": "fetch-node-release",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fetch latest Node.js release version by keyword such as \"stable\", \"lts/carbon\" or \"lts/*\"",
   "keywords": [
     "lts",
