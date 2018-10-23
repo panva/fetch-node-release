@@ -1,0 +1,31 @@
+{
+  "name": "fetch-node-release",
+  "version": "1.0.0",
+  "description": "Fetch latest Node.js release version by keyword such as \"stable\", \"lts/carbon\" or \"lts/*\"",
+  "keywords": [
+    "lts",
+    "node",
+    "version"
+  ],
+  "homepage": "https://github.com/panva/fetch-node-release",
+  "repository": "panva/fetch-node-release",
+  "license": "MIT",
+  "author": "Filip Skokan <panva.ip@gmail.com>",
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "got": "^8.3.2"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nock": "^9.6.1"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}
