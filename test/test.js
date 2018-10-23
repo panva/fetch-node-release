@@ -16,8 +16,8 @@ describe('fetch-node-release()', function () {
   ['stable', 'node'].forEach(function (keyword) {
     it(`fetches latest version when keyword is ${keyword}`, function () {
       nock('https://nodejs.org')
-        .get('/dist/latest/')
-        .reply(200, fs.readFileSync('test/vcr/dist-latest.html'))
+        .get('/dist/index.json')
+        .reply(200, fs.readFileSync('test/vcr/dist.json'))
 
       return fetch(keyword)
         .then(function (version) {
@@ -29,8 +29,8 @@ describe('fetch-node-release()', function () {
 
   it('fetches specific lts when keyword is e.g. lts/carbon', function () {
     nock('https://nodejs.org')
-      .get('/dist/latest-carbon/')
-      .reply(200, fs.readFileSync('test/vcr/dist-lts.html'))
+      .get('/dist/index.json')
+      .reply(200, fs.readFileSync('test/vcr/dist.json'))
 
     return fetch('lts/carbon')
       .then(function (version) {
@@ -41,12 +41,8 @@ describe('fetch-node-release()', function () {
 
   it('fetches latest lts branch when keyword is lts/*', function () {
     nock('https://nodejs.org')
-      .get('/dist/')
-      .reply(200, fs.readFileSync('test/vcr/dist.html'))
-
-    nock('https://nodejs.org')
-      .get('/dist/latest-carbon/')
-      .reply(200, fs.readFileSync('test/vcr/dist-lts.html'))
+      .get('/dist/index.json')
+      .reply(200, fs.readFileSync('test/vcr/dist.json'))
 
     return fetch('lts/*')
       .then(function (version) {
@@ -57,8 +53,8 @@ describe('fetch-node-release()', function () {
 
   it('rejects when no node version is found', function () {
     nock('https://nodejs.org')
-      .get('/dist/latest-foo/')
-      .reply(200, 'nothing to see here')
+      .get('/dist/index.json')
+      .reply(200, fs.readFileSync('test/vcr/dist.json'))
 
     return fetch('lts/foo')
       .then(function () {
@@ -72,7 +68,7 @@ describe('fetch-node-release()', function () {
 
   it('rejects when nodejs dist doesn\'t return', function () {
     nock('https://nodejs.org')
-      .get('/dist/latest-foo/')
+      .get('/dist/index.json')
       .reply(404)
 
     return fetch('lts/foo')
