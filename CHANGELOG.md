@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Refactor
 
-* now uses https://nodejs.org/dist/index.json instead ([08cb2e2](https://github.com/panva/fetch-node-release/commit/08cb2e2))
+* now uses https://nodejs.org/dist/index.json instead ([08cb2e2](https://github.com/panva/fetch-node-release/commit/0617a17))
 
 <a name="1.0.0"></a>
 # 1.0.0 (2018-10-24)
